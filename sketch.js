@@ -7,7 +7,7 @@
 let boids = [];
 
 function setup() {
-  createCanvas(720, 400);
+  createCanvas(ScreenWidth, ScreenHeight);
 
   // Add an initial set of boids into the system
   for (let i = 0; i < 100; i++) {
