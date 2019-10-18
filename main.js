@@ -28,7 +28,7 @@ function getNewQuote() {
 
 function makeArray() {
       for(let i=0; i<arr.length;i++){
-          arr[i] = i + ".img";
+          arr[i] = i + ".jpg";
           console.log(arr[i]);
       }
 }
