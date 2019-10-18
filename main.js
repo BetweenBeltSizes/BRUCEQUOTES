@@ -1,36 +1,22 @@
-$(document).ready(function(){
+var individualQuotes = [];
 
-  var quote;
-  var author;
-
-  function getNewQuote(){
-    $.ajax({
-      url:'https://api.forismatic.com/api/1.0/',
-      jsonp: 'jsonp',
-      dataType: 'jsonp',
-      data: {
-        method: 'getQuote',
-        lang: 'en',
-        format: 'jsonp'
-      },
-      success: function(response) {
-        // console.log(response.quoteText);
-        quote = response.quoteText;
-        author = response.quoteAuthor;
-        $('#quote').text(quote);
-        if (author){
-          $('#author').text('said by ' + author);
-        } else {
-          $('#author').text('- unknown');
-        }
-      }
-    });
-  }
-  getNewQuote();
-
-  $('.get-quote-btn').on('click', function(){
-    event.preventDefault();
-    getNewQuote();
-  })
-
+$.ajax({
+  type: 'GET',
+  url: 'https://raw.githubusercontent.com/BetweenBeltSizes/BRUCEQUOTES/master/getting%20the%20quotes/myfile.txt',
+  async: false
+}).done(function (data) {
+  console.log(data);
+  individualQuotes = data.split('\n');
 });
+
+getNewQuote();
+
+function getNewQuote() {
+    var random = Math.floor(Math.random() * individualQuotes.length);
+    $('#quote').text(individualQuotes[random]);
+}
+
+$('.get-quote-btn').on('click', function(){
+  event.preventDefault();
+  getNewQuote();
+})
