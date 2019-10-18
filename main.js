@@ -40,8 +40,8 @@ function randomImage() {
 
 
   if(arr.length > 1) {
-    while(arr == lastIndex) {
-      arr = Math.floor(Math.random())
+    while(imgIndex == lastIndex) {
+      imgIndex = Math.floor(Math.random() * imgArray.length);
     }
 
     lastIndex = imgIndex;
