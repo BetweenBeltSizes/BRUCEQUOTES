@@ -15,6 +15,7 @@ $('.get-quote-btn').on('click', function(){
   event.preventDefault();
   getNewQuote();
   randomImage();
+  Image();
 })
 
 getNewQuote();
@@ -54,4 +55,14 @@ function randomImage() {
   } else {
     return false;
   }
+}
+
+
+function Image() {
+  var x = document.createElement("IMG");
+  x.setAttribute("src", "bruce_pics/1.jpg");
+  x.setAttribute("width", "304");
+  x.setAttribute("height", "228");
+  x.setAttribute("alt", "The Pulpit Rock");
+  document.body.appendChild(x);
 }
