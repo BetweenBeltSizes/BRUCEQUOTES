@@ -42,7 +42,8 @@ function Image(path) {
   x.setAttribute("src", path);
   var randomTop = Math.floor(Math.random() * 500);
   var randomLeft = Math.floor(Math.random() * 500);
-  x.offset({top: randomTop, left: randomLeft});
+
+  x.css({position: 'absolute', top: randomTop, left: randomLeft});
   $('#background').appendChild(x)
 }
 
