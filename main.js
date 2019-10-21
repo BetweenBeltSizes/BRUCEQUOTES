@@ -6,8 +6,6 @@ for (let i = 0; i < imageArray.length; i++) {
   imageArray[i] = i + ".jpg";
 }
 
-getNewQuote();
-
 document.getElementById('myimage').src = randomImage();
 
 $.ajax({
@@ -17,6 +15,8 @@ $.ajax({
 }).done(function(data) {
   individualQuotes = data.split('\n');
 });
+
+getNewQuote();
 
 $('.get-quote-btn').on('click', function() {
   event.preventDefault();
