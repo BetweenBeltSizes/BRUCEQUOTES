@@ -32,6 +32,8 @@ function randomImage() {
     imgIndex = Math.floor(Math.random() * imageArray.length);
   } while (imgIndex === lastIndex);
 
+  lastIndex = imgIndex;
+
   return imgDir + imageArray[imgIndex];
 }
 
