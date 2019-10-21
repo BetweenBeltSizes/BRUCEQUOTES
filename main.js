@@ -39,11 +39,12 @@ function randomImage() {
 
 function Image(path) {
   var x = document.createElement("img");
+  x.setAttribute("id", "test")
   x.setAttribute("src", path);
   var randomTop = Math.floor(Math.random() * 500);
   var randomLeft = Math.floor(Math.random() * 500);
 
-  x.css({position: 'absolute', top: randomTop, left: randomLeft});
+  $("#test").css({position: 'absolute', top: randomTop, left: randomLeft});
   $('#background').appendChild(x)
 }
 
