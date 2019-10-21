@@ -18,16 +18,6 @@ $.ajax({
 
 getNewQuote();
 
-$('.get-quote-btn').on('click', function() {
-  event.preventDefault();
-  getNewQuote();
-
-  var randomImage = randomImage();
-
-  document.getElementById('myimage').src = randomImage;
-  Image(randomImage);
-})
-
 function getNewQuote() {
   var random = Math.floor(Math.random() * individualQuotes.length);
   $('#quote').text(individualQuotes[random]);
@@ -54,3 +44,13 @@ function Image(path) {
   x.setAttribute("alt", "The Pulpit Rock");
   document.body.appendChild(x);
 }
+
+$('.get-quote-btn').on('click', function() {
+  event.preventDefault();
+  getNewQuote();
+
+  var newImage = randomImage();
+
+  document.getElementById('myimage').src = newImage;
+  Image(newImage);
+})
