@@ -38,13 +38,12 @@ function randomImage() {
 }
 
 function Image(path) {
-  var x = document.createElement("IMG");
+  var x = document.createElement("img");
   x.setAttribute("src", path);
-  x.style.left = "0px";
-  x.setAttribute("width", "304");
-  x.setAttribute("height", "228");
-  x.setAttribute("alt", "The Pulpit Rock");
-  document.body.appendChild(x);
+  var randomTop = Math.floor(Math.random() * 500);
+  var randomLeft = Math.floor(Math.random() * 500);
+  x.offset({top: randomTop, left: randomLeft});
+  $('#background').appendChild(x)
 }
 
 $('.get-quote-btn').on('click', function() {
