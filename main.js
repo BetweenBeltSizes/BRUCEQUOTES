@@ -1,13 +1,20 @@
 var individualQuotes = [];
-var arr = new Array(20)
+var imageArray = new Array(20)
 var lastIndex = 0;
+
+for (let i = 0; i < imageArray.length; i++) {
+  imageArray[i] = i + ".jpg";
+}
+
+getNewQuote();
+
+document.getElementById('myimage').src = randomImage();
 
 $.ajax({
   type: 'GET',
   url: 'https://raw.githubusercontent.com/BetweenBeltSizes/BRUCEQUOTES/master/the_quotes/myfile.txt',
   async: false
 }).done(function(data) {
-
   individualQuotes = data.split('\n');
 });
 
@@ -18,45 +25,26 @@ $('.get-quote-btn').on('click', function() {
   Image();
 })
 
-getNewQuote();
-makeArray();
-randomImage();
-
 function getNewQuote() {
   var random = Math.floor(Math.random() * individualQuotes.length);
   $('#quote').text(individualQuotes[random]);
 }
 
-function makeArray() {
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = i + ".jpg";
-    console.log(arr[i]);
-  }
-}
-
-
 function randomImage() {
-
-  var theImage = document.getElementById('myimage');
-
   var imgDir = 'bruce_pics/';
 
   var imgIndex = lastIndex;
 
   do {
-    imgIndex = Math.floor(Math.random() * arr.length);
+    imgIndex = Math.floor(Math.random() * imageArray.length);
   } while (imgIndex === lastIndex);
 
-  var imgPath = imgDir + arr[imgIndex];
-
-  theImage.src = imgPath;
-
+  return imgDir + imageArray[imgIndex];
 }
-
 
 function Image() {
   var x = document.createElement("IMG");
-  x.setAttribute("src", "bruce_pics/1.jpg");
+  x.setAttribute("src", randomImage());
   x.style.left = "0px";
   x.setAttribute("width", "304");
   x.setAttribute("height", "228");
