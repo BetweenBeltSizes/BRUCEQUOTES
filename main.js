@@ -34,11 +34,20 @@ function makeArray() {
   }
 }
 
+
 function randomImage() {
+
   var theImage = document.getElementById('myimage');
+
   var imgDir = 'bruce_pics/';
 
-  var imgPath = imgDir + arr[Math.floor(Math.random() * arr.length)];
+  var imgIndex = lastIndex;
+
+  do {
+    imgIndex = Math.floor(Math.random() * arr.length);
+  } while (imgIndex === lastIndex);
+
+  var imgPath = imgDir + arr[imgIndex];
 
   theImage.src = imgPath;
 
