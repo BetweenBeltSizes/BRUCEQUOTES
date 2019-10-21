@@ -21,8 +21,11 @@ getNewQuote();
 $('.get-quote-btn').on('click', function() {
   event.preventDefault();
   getNewQuote();
-  randomImage();
-  Image();
+
+  var randomImage = randomImage();
+
+  document.getElementById('myimage').src = randomImage;
+  Image(randomImage);
 })
 
 function getNewQuote() {
@@ -42,9 +45,9 @@ function randomImage() {
   return imgDir + imageArray[imgIndex];
 }
 
-function Image() {
+function Image(path) {
   var x = document.createElement("IMG");
-  x.setAttribute("src", randomImage());
+  x.setAttribute("src", path);
   x.style.left = "0px";
   x.setAttribute("width", "304");
   x.setAttribute("height", "228");
