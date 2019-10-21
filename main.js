@@ -45,7 +45,7 @@ function Image(path) {
   var randomLeft = Math.floor(Math.random() * 500);
 
   $("#test").css({position: 'absolute', top: randomTop, left: randomLeft});
-  $('#background').appendChild(x)
+  document.getElementById("background").appendChild(x);
 }
 
 $('.get-quote-btn').on('click', function() {
